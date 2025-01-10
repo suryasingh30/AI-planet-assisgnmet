@@ -7,14 +7,12 @@ const App = () => {
   const [chat, setChat] = useState([]);
   const [querying, setQuerying] = useState(false);
 
-  // Handle query submission
   const handleQuery = async () => {
     if (!query.trim()) {
       alert("Please enter a query.");
       return;
     }
 
-    // Add user's query to chat
     setChat((prevChat) => [...prevChat, { type: "user", message: query }]);
     setQuery("");
     setQuerying(true);
@@ -24,7 +22,6 @@ const App = () => {
         params: { query },
       });
 
-      // Add AI's response to chat
       setChat((prevChat) => [
         ...prevChat,
         { type: "ai", message: response.data.answer || "No answer found." },
@@ -41,10 +38,8 @@ const App = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", width: "100vw" }}>
-      {/* Navbar */}
       <Navbar />
 
-      {/* Chat Window */}
       <div
         style={{
           flex: 1,
@@ -62,9 +57,9 @@ const App = () => {
           <div
             key={index}
             style={{
-              width: "100%", // Ensure message takes full width
+              width: "100%",
               display: "flex",
-              justifyContent: message.type === "user" ? "flex-end" : "flex-start", // Reverse positions
+              justifyContent: message.type === "user" ? "flex-end" : "flex-start",
               marginBottom: "10px",
             }}
           >
@@ -76,7 +71,7 @@ const App = () => {
                 marginRight: message.type === "ai" ? "10px" : "0",
               }}
             >
-              {/* Avatar */}
+
               <div
                 style={{
                   width: "30px",
@@ -95,14 +90,13 @@ const App = () => {
                 {message.type === "user" ? "M" : "A"}
               </div>
 
-              {/* Message */}
               <div
                 style={{
                   backgroundColor: message.type === "user" ? "#007BFF" : "#f1f1f1",
                   color: message.type === "user" ? "#fff" : "#333",
                   padding: "10px 15px",
                   borderRadius: "10px",
-                  maxWidth: "90%", // Optional: set a max width for readability
+                  maxWidth: "90%",
                   wordWrap: "break-word",
                   boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)",
                 }}
@@ -114,7 +108,6 @@ const App = () => {
         ))}
       </div>
 
-      {/* Input Box */}
       <div
         style={{
           padding: "10px",
@@ -138,11 +131,11 @@ const App = () => {
             border: "1px solid #ccc",
             borderRadius: "5px",
             marginRight: "10px",
-            width: "100%", // Ensure the input box also takes full width
+            width: "100%",
             boxSizing: "border-box",
             height: "50px",
-            backgroundColor: "#fff", // White background
-            color: "#808080", // Grey text color
+            backgroundColor: "#fff",
+            color: "#808080",
           }}
         />
 
