@@ -1,3 +1,7 @@
+To include a new folder for testing with the structure you described, we can update the documentation to reflect the changes. Below is the modified README content, including details about the testing folder and its purpose.
+
+---
+
 # PDF Question-Answering Application
 
 ## Overview
@@ -12,6 +16,7 @@ This project is a web application that enables users to upload PDF files, extrac
 - Save and store the extracted content in a SQLite database.
 - Query the content using a question-answering model.
 - Interactive frontend for asking questions and displaying results.
+- Predefined testing with sample PDF files and expected outputs.
 
 ---
 
@@ -93,6 +98,30 @@ This project is a web application that enables users to upload PDF files, extrac
 
 ---
 
+## Testing
+
+### Testing Folder Structure
+
+```
+project/
+├── testing/
+│   ├── input-pdfs/
+│   │   └── sample.pdf           # PDF to be uploaded for testing
+│   ├── queries-and-answers/
+│   │   ├── queries.txt          # Questions to ask and answers
+```
+
+### How to Test
+
+1. Place the PDF files you want to test in the `input-pdfs` folder.
+2. Define the questions to ask in `queries-and-answers/queries.txt`.
+3. Add the expected answers for validation in `queries-and-answers/expected-answers.txt`.
+4. Start the backend and frontend servers.
+5. Upload a PDF from the `input-pdfs` folder using the frontend or API.
+6. Query the PDF content with questions from `queries-and-answers/queries.txt`.
+
+---
+
 ## API Documentation
 
 ### Endpoints
@@ -143,7 +172,7 @@ This project is a web application that enables users to upload PDF files, extrac
 ## Folder Structure
 
 ```
-project/
+AI planet assisgnmet/
 ├── backend/
 │   ├── main.py          # FastAPI application
 │   ├── requirements.txt # Backend dependencies
@@ -155,6 +184,11 @@ project/
 │   │   └── index.js     # Entry point
 │   ├── package.json     # Frontend dependencies
 │   └── .env             # Frontend environment variables (if required)
+├── testing/
+│   ├── input-pdfs/
+│   │   └── sample.pdf
+│   ├── queries-and-answers/
+│   │   ├── queries.txt
 ```
 
 ---
@@ -179,4 +213,3 @@ project/
 ## Contact
 
 For questions or contributions, feel free to reach out to Suryanarayan Singh at 3suryasingh@gmail.com.
-
